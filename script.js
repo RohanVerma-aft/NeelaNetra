@@ -281,7 +281,7 @@ async function getData() {
   result.classList.remove('visible');
 
   try {
-    const res = await fetch(`http://127.0.0.1:8000/api/river/${encodeURIComponent(river)}`);
+    const res = await fetch(`https://neelanetra-production.up.railway.app/api/river/${encodeURIComponent(river)}`);
     const data = await res.json();
 
     document.getElementById('pollution').textContent = data.current_pollution_index;
@@ -293,7 +293,7 @@ document.getElementById('diseases').innerHTML = data.disease_risks
     const graph = document.getElementById('graphImage');
     const graphBox = document.querySelector('.graph-box');
 graphBox.style.display = 'block';
-    graph.src = `http://127.0.0.1:8000/api/river/${encodeURIComponent(river)}/graph?time=${Date.now()}`;
+    graph.src = `https://neelanetra-production.up.railway.app/api/river/${encodeURIComponent(river)}/graph?time=${Date.now()}`;
     graph.style.display = 'block';
 
     result.classList.add('visible');
